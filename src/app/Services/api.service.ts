@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { DataTablesResponse, Customer, Order } from './api.model';
 import { ClrDatagridStateInterface } from '@clr/angular';
+import { map } from 'rxjs/operators';
 
 const BASE_API_URL = environment.baseApiURL
 
@@ -58,9 +59,8 @@ export class ApiService {
   }
 
   public getCustomerDetails(customerId) {
-    return this.http.post<Customer>(
-      BASE_API_URL + `QueryCustomers/${customerId}`,
-      { id: customerId }
+    return this.http.get<Customer>(
+      BASE_API_URL + `QueryCustomers?id=${customerId}`
     )
   }
 }

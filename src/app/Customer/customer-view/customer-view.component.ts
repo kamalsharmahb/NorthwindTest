@@ -19,16 +19,14 @@ export class CustomerViewComponent implements OnInit {
 
   ngOnInit() {
     this.customerId = this.activatedRoute.snapshot.paramMap.get("id");
-    console.log(this.customerId);
     this.getCustomerDetails();
   }
 
   getCustomerDetails() {
     this.apiService.getCustomerDetails(this.customerId)
-    .subscribe(data=>{
-      console.log(data, "data");
-      
-    })
+      .subscribe((data: any) => {
+        this.customer = data.results[0];
+      })
   }
 
 }

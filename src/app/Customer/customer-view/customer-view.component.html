@@ -1,3 +1,58 @@
-<p>
-  Customer view component
-</p>
+<!-- customer -->
+<div class="clr-row text-center" *ngIf="customer">
+  <div class="clr-col-lg-12 clr-col-md-12 clr-col-12">
+    <div class="card">
+      <div class="card-header">
+        {{customer.contactName}}
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <table class="table table-vertical">
+            <tbody>
+              <tr>
+                <th>Id</th>
+                <td>{{customer.id}}</td>
+              </tr>
+              <tr>
+                <th>Company Name</th>
+                <td>{{customer.companyName}}</td>
+              </tr>
+              <tr>
+                <th>Contact Name</th>
+                <td>{{customer.contactName}}</td>
+              </tr>
+              <tr>
+                <th>Contact Title</th>
+                <td>{{customer.contactTitle}}</td>
+              </tr>
+              <tr>
+                <th>Address</th>
+                <td>{{customer.address}}</td>
+              </tr>
+              <tr>
+                <th>Postal Code</th>
+                <td>{{customer.postalCode}}</td>
+              </tr>
+              <tr>
+                <th>City</th>
+                <td>{{customer.city}}</td>
+              </tr>
+              <tr>
+                <th>Country</th>
+                <td>{{customer.country}}</td>
+              </tr>
+              <tr>
+                <th>Fax</th>
+                <td>{{customer.fax}}</td>
+              </tr>
+              <tr>
+                <th>Phone</th>
+                <td>{{customer.phone}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
