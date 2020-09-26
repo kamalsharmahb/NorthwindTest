@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="clr-row">
+    <div class="clr-col-sm-12 clr-m-1">
+      <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
+        <clr-dg-column [clrDgField]="'id'">Id</clr-dg-column>
+        <clr-dg-column [clrDgField]="'companyName'">Company Name</clr-dg-column>
+        <clr-dg-column [clrDgField]="'contactName'">Contact Name</clr-dg-column>
+        <clr-dg-column [clrDgField]="'contactTitle'">Contact Title</clr-dg-column>
+        <clr-dg-column [clrDgField]="'address'">Address</clr-dg-column>
+        <clr-dg-column [clrDgField]="'postalCode'">Postal Code</clr-dg-column>
+        <clr-dg-column [clrDgField]="'city'">City</clr-dg-column>
+        <clr-dg-column [clrDgField]="'country'">Country</clr-dg-column>
+        <clr-dg-column [clrDgField]="'fax'">Fax</clr-dg-column>
+        <clr-dg-column [clrDgField]="'phone'">Phone</clr-dg-column>
+
+        <clr-dg-row *ngFor="let c of customers" (click)="onRedirectCustomer(c.id)">
+          <clr-dg-cell>{{ c.id }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.companyName }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.contactName }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.contactTitle }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.address }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.postalCode }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.city }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.country }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.fax }}</clr-dg-cell>
+          <clr-dg-cell>{{ c.phone }}</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-footer>
+          <clr-dg-pagination #pagination [clrDgPageSize]="10" [clrDgTotalItems]="total">
+            <clr-dg-page-size [clrPageSizeOptions]="perPageArr">Users per page</clr-dg-page-size>
+            {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+            of {{pagination.totalItems}} users
+          </clr-dg-pagination>
+        </clr-dg-footer>
+      </clr-datagrid>
+    </div>
+  </div>
+</div>

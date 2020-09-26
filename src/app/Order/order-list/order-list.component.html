@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col m-1">
+      <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Customer Id</th>
+            <th>Employee Id</th>
+            <th>Order Date</th>
+            <th>Required Date</th>
+            <th>Shipped Date</th>
+            <th>Ship Via</th>
+            <th>Frieght</th>
+            <th>Ship Name</th>
+            <th>Ship Address</th>
+            <th>Ship City</th>
+            <th>Ship Region</th>
+            <th>Ship Postal Code</th>
+            <th>Ship Country</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="orders?.length != 0">
+          <tr class="order-row" *ngFor="let o of orders">
+            <td>{{ o.id }}</td>
+            <td>{{ o.customerId }}</td>
+            <td>{{ o.employeeId }}</td>
+            <td>{{ o.orderDate}}</td>
+            <td>{{ o.requiredDate }}</td>
+            <td>{{ o.shippedDate }}</td>
+            <td>{{ o.shipVia }}</td>
+            <td>{{ o.freight }}</td>
+            <td>{{ o.shipName }}</td>
+            <td>{{ o.shipAddress }}</td>
+            <td>{{ o.shipCity }}</td>
+            <td>{{ o.shipRegion }}</td>
+            <td>{{ o.shipPostalCode }}</td>
+            <td>{{ o.shipCountry }}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="orders?.length == 0">
+          <tr>
+            <td colspan="3" class="no-data-available">No data!</td>
+          </tr>
+        <tbody>
+      </table> -->
+      <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
+        <clr-dg-column [clrDgField]="'id'">ID</clr-dg-column>
+        <clr-dg-column [clrDgField]="'customerId'">Customer Id</clr-dg-column>
+        <clr-dg-column [clrDgField]="'employeeId'">Employee Id</clr-dg-column>
+        <clr-dg-column [clrDgField]="'orderDate'">Order Date</clr-dg-column>
+        <clr-dg-column [clrDgField]="'requiredDate'">Required Date</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shippedDate'">Shipped Date</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shipVia'">Ship Via</clr-dg-column>
+        <clr-dg-column [clrDgField]="'freight'">Freight</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shipName'">Ship Name</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shipAddress'">Ship Address</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shipCity'">Ship City</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shipRegion'">Ship Region</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shipPostalCode'">Ship Postal Code</clr-dg-column>
+        <clr-dg-column [clrDgField]="'shipCountry'">Ship Country</clr-dg-column>
+
+        <clr-dg-row *ngFor="let o of orders">
+          <clr-dg-cell>{{ o.id }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.customerId }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.employeeId }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.orderDate}}</clr-dg-cell>
+          <clr-dg-cell>{{ o.requiredDate }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shippedDate }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shipVia }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.freight }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shipName }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shipAddress }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shipCity }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shipRegion }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shipPostalCode }}</clr-dg-cell>
+          <clr-dg-cell>{{ o.shipCountry }}</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-footer>
+          <clr-dg-pagination #pagination [clrDgPageSize]="10" [clrDgTotalItems]="total">
+            <clr-dg-page-size [clrPageSizeOptions]="perPageArr">Users per page</clr-dg-page-size>
+            {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+            of {{pagination.totalItems}} users
+          </clr-dg-pagination>
+        </clr-dg-footer>
+      </clr-datagrid>
+    </div>
+  </div>
+</div>
